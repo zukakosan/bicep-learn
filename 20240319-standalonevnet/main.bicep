@@ -9,6 +9,31 @@ var nicName = '${vmName}-nic'
 var diskName = '${vmName}-disk' 
 var vmSize = 'Standard_B2ms'
 
+
+// RDP 用の NSG を作成する
+resource nsg 'Microsoft.Network/networkSecurityGroups@2023-09-01' = {
+  name: 'nsg-default'
+  location: location
+  properties: {
+    securityRules: [
+      {
+        name: 'allow-rdp'
+        properties: {
+          priority: 1000
+          access: 'Allow'
+          direction: 'Inbound'
+          destinationPortRange: '3389'
+          protocol: 'Tcp'
+          sourcePortRange: '*'
+          sourceAddressPrefix: '*'
+          destinationAddressPrefix: '*'
+
+        }
+      }
+    ]
+  }
+}
+
 resource hubVnet 'Microsoft.Network/virtualNetworks@2023-09-01' = {
   name: vnetName
   location: location
@@ -26,6 +51,9 @@ resource mainSubnet 'Microsoft.Network/virtualNetworks/subnets@2023-09-01' = {
   name: 'subnet-001'
   properties: {
     addressPrefix: '10.0.0.0/24'
+    networkSecurityGroup: {
+      id: nsg.id
+    }
   }
 }
 
@@ -34,6 +62,9 @@ resource vmSubnet 'Microsoft.Network/virtualNetworks/subnets@2023-09-01' = {
   name: 'subnet-vm'
   properties: {
     addressPrefix: '10.0.1.0/24'
+    networkSecurityGroup: {
+      id: nsg.id
+    }
   }
   dependsOn: [
     mainSubnet
