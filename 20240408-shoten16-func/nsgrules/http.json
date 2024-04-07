@@ -1,0 +1,11 @@
+{
+	"description": "Allows HTTP traffic",
+	"protocol": "Tcp",
+	"sourcePortRange": "*",
+	"destinationPortRange": "80",
+	"sourceAddressPrefix": "*",
+	"destinationAddressPrefix": "*",
+	"access": "Allow",
+	"priority": 1100,
+	"direction": "Inbound"
+}

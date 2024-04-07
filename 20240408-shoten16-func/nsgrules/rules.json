@@ -1,0 +1,30 @@
+[
+	{
+		"name": "SSH",
+		"properties": {
+			"description": "Allows SSH traffic",
+			"protocol": "Tcp",
+			"sourcePortRange": "*",
+			"destinationPortRange": "22",
+			"sourceAddressPrefix": "*",
+			"destinationAddressPrefix": "*",
+			"access": "Allow",
+			"priority": 1000,
+			"direction": "Inbound"
+		}
+	},
+	{
+		"name": "HTTP",
+		"properties": {
+			"description": "Allows HTTP traffic",
+			"protocol": "Tcp",
+			"sourcePortRange": "*",
+			"destinationPortRange": "80",
+			"sourceAddressPrefix": "*",
+			"destinationAddressPrefix": "*",
+			"access": "Allow",
+			"priority": 1100,
+			"direction": "Inbound"
+		}
+	}
+]
