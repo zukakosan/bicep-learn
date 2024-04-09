@@ -1,4 +1,4 @@
-param location string = 'japaneast'
+param location string = resourceGroup().location
 
 var nsgName = 'nsg-${location}'
 

@@ -1,4 +1,4 @@
-param location string = 'japaneast'
+param location string = resourceGroup().location
 param subnetCount int = 5
 param vnetAddressSpace string = '10.0.0.0/16'
 param subnetMaskSize int = 24

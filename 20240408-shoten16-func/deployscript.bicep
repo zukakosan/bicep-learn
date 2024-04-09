@@ -1,4 +1,4 @@
-param location string = 'japaneast'
+param location string = resourceGroup().location
 
 resource createUserScript 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
   name: 'createUserScript'
