@@ -40,7 +40,7 @@ resource appService 'Microsoft.Web/sites@2022-09-01' = {
       appSettings: [
         {
           name: 'AZURE_OPENAI_SERVICE_KEY'
-          value: cognitiveService.listKeys().key1
+          value: AOAI.listKeys().key1
         }
       ]
     }
