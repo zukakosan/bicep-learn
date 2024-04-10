@@ -1,3 +1,0 @@
-cmd.exe /C "cmdkey /add:`"strgkm3gbh7dmz4rczukako.file.core.windows.net`" /user:`"localhost\strgkm3gbh7dmz4rczukako`" /pass:`"7ABy+0arqVuJBg4pVkZs9n1x5zI8pWAgKdwEpqqR8EDRtRRtIs6VuGAzDAYX3h9rjUaVjfj7zL8X+ASt3zFL9w==`""
-    # ドライブをマウントする
-    New-PSDrive -Name Z -PSProvider FileSystem -Root "\\strgkm3gbh7dmz4rczukako.file.core.windows.net\share1" -Persist
