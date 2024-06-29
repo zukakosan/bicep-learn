@@ -9,8 +9,6 @@ var nicName = '${vmName}-nic'
 var diskName = '${vmName}-disk' 
 var vmSize = 'Standard_B2ms'
 
-
-// RDP 用の NSG を作成する
 resource nsg 'Microsoft.Network/networkSecurityGroups@2023-11-01' = {
   name: 'nsg-default'
   location: location
