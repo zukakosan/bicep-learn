@@ -11,7 +11,7 @@ var vmSize = 'Standard_B2ms'
 
 
 // RDP 用の NSG を作成する
-resource nsg 'Microsoft.Network/networkSecurityGroups@2023-09-01' = {
+resource nsg 'Microsoft.Network/networkSecurityGroups@2023-11-01' = {
   name: 'nsg-default'
   location: location
   properties: {
@@ -34,7 +34,7 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2023-09-01' = {
   }
 }
 
-resource hubVnet 'Microsoft.Network/virtualNetworks@2023-09-01' = {
+resource hubVnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
   name: vnetName
   location: location
   properties: {
@@ -46,7 +46,7 @@ resource hubVnet 'Microsoft.Network/virtualNetworks@2023-09-01' = {
   }
 }
 
-resource mainSubnet 'Microsoft.Network/virtualNetworks/subnets@2023-09-01' = {
+resource mainSubnet 'Microsoft.Network/virtualNetworks/subnets@2023-11-01' = {
   parent: hubVnet
   name: 'subnet-001'
   properties: {
@@ -57,7 +57,7 @@ resource mainSubnet 'Microsoft.Network/virtualNetworks/subnets@2023-09-01' = {
   }
 }
 
-resource vmSubnet 'Microsoft.Network/virtualNetworks/subnets@2023-09-01' = {
+resource vmSubnet 'Microsoft.Network/virtualNetworks/subnets@2023-11-01' = {
   parent: hubVnet
   name: 'subnet-vm'
   properties: {
