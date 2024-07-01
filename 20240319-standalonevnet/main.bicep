@@ -2,9 +2,9 @@ param adminUsername string
 @secure()
 param adminPassword string
 
-var location = 'eastus2euap'
-var vnetName = 'vnet'
-var vmName = 'vm-ubuntu-001'
+var location = resourceGroup().location
+var vnetName = 'vnet-test'
+var vmName = 'vm-ubuntu-test'
 var nicName = '${vmName}-nic'
 var diskName = '${vmName}-disk' 
 var vmSize = 'Standard_B2ms'
