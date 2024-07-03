@@ -2,15 +2,14 @@ param adminUsername string
 @secure()
 param adminPassword string
 
-// var location = 'japaneast'
-var location = 'eastus2euap'
-var vnetName = 'vnet'
-var vmName = 'vm-ubuntu-001'
+var location = resourceGroup().location
+var vnetName = 'vnet-test'
+var vmName = 'vm-ubuntu-test'
 var nicName = '${vmName}-nic'
 var diskName = '${vmName}-disk' 
 var vmSize = 'Standard_B2ms'
 
-resource hubVnet 'Microsoft.Network/virtualNetworks@2023-09-01' = {
+resource hubVnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
   name: vnetName
   location: location
   properties: {
@@ -30,7 +29,7 @@ resource hubVnet 'Microsoft.Network/virtualNetworks@2023-09-01' = {
   }
 }
 
-resource vmSubnet 'Microsoft.Network/virtualNetworks/subnets@2023-09-01' = {
+resource vmSubnet 'Microsoft.Network/virtualNetworks/subnets@2023-11-01' = {
   parent: hubVnet
   name: 'subnet-vm'
   properties: {
