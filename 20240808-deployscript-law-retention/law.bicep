@@ -34,9 +34,8 @@ resource contributorRoleAssignment 'Microsoft.Authorization/roleAssignments@2022
   }
 }
 
-// テーブル名の一覧を取得してループ回せば対象のテーブルの合計保持期間のみ更新できる
-// 今回はAzureDiagnosticsのみを対象としている
-// Azure Diagnosticsが存在する前提
+// スクリプト内でテーブル名の一覧を取得してループ回せば対象のテーブルの合計保持期間のみ更新できる
+// 今回はAzureDiagnosticsのみを対象としている（Azure Diagnosticsが存在する前提）
 resource script 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   name: 'script'
   location: location
